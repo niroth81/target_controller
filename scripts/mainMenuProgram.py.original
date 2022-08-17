@@ -1,0 +1,44 @@
+
+from PyQt5 import QtWidgets
+from ui.mainMenu import Ui_mainMenu
+
+from scripts.matchProgram import matchProgram
+
+from programs.bullProgram import bullProgram
+from programs.serviceProgram import serviceProcedure
+
+class mainMenu(QtWidgets.QMainWindow):
+
+    def __init__(self):
+        super(mainMenu, self).__init__()
+        self.ui = Ui_mainMenu()
+        self.ui.setupUi(self)
+        
+        self.ui.bullsEyeBtn.clicked.connect(self.bullsEyeClickedHandler);
+        self.ui.serviceMatchBtn.clicked.connect(self.serviceMatchClickedHandler);
+
+        self.program1 = bullProgram("match instruction bulls eye","bulls eye sequence description");
+        
+        self.program2 = serviceProcedure("match instruction service","service match sequence description");
+        
+
+    def bullsEyeClickedHandler(self):   
+        #local import to remove cyclic import error
+        from scripts.matchInstructProgram import matchInstructions
+        self.test = matchInstructions(self.program1)
+        self.test.show()
+        self.close()
+    
+    def serviceMatchClickedHandler(self):
+        #local import to remove cyclic import error
+        from scripts.matchInstructProgram import matchInstructions
+        self.test = matchInstructions(self.program2)
+        self.test.show()
+        self.close()
+
+    
+
+    if __name__ == "__main__":
+        print("mainmenu")
+        pass
+            

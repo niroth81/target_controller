@@ -1,0 +1,34 @@
+
+from programs.masterProgram import masterPrograms
+import time
+
+class bullProgram(masterPrograms):
+
+    def __init__(self, matchInstructions, Sequencedescription):
+        super().__init__(matchInstructions, Sequencedescription)
+
+        self.matchInstructions = matchInstructions
+        
+        self.ListOfSequences = [
+                ["ON:7","OFF:10","ON:3"],
+                ["ON:7","OFF:25","ON:3"],
+                ["ON:7","OFF:10","ON:3"],
+                ["ON:7","OFF:5","ON:3"],
+                ["ON:7","OFF:3","ON:3"]
+        ];
+       
+
+        self.programGroupDescriptons=[
+            "short discription teste1",
+            "short discription teste2",
+            "short discription teste3",
+             "short discription teste4",
+              "short discription teste5"
+           
+            
+            ];
+        
+        
+
+    def procedure(self):
+        self.relay_1 =super().initilaiseRGPIO();
